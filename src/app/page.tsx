@@ -40,3 +40,36 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function Home() {
   return <App />;
 }
+import Frame from "~/components/Frame";
+import { PROJECT_TITLE, PROJECT_DESCRIPTION, EMPIRE_URL } from "~/lib/constants";
+
+export const metadata = {
+  title: PROJECT_TITLE,
+  description: PROJECT_DESCRIPTION,
+  openGraph: {
+    title: PROJECT_TITLE,
+    description: PROJECT_DESCRIPTION,
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: PROJECT_TITLE,
+      },
+    ],
+  },
+  other: {
+    "fc:frame": "vNext",
+    "fc:frame:image": "/og-image.png",
+    "fc:frame:post_url": EMPIRE_URL,
+    "fc:frame:button:1": "Visit My Empire",
+  },
+};
+
+export default function Home() {
+  return (
+    <main className="flex min-h-screen flex-col items-center justify-center p-4">
+      <Frame />
+    </main>
+  );
+}
