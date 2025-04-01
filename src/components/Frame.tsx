@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useCallback, useState } from "react";
-import { EMPIRE_URL } from "~/lib/constants";
+import { EMPIRE_URL, PROJECT_TITLE, DISTRIBUTED_AMOUNT, BURNED_AMOUNT } from "~/lib/constants";
 
 // Custom blinking text component
 function BlinkingText({ children, color = "#FF00FF", speed = "1s" }: { children: React.ReactNode; color?: string; speed?: string }) {
@@ -70,7 +70,7 @@ function MySpaceFrame() {
       {/* Marquee section */}
       <div className="bg-black bg-opacity-70 p-1 rounded mb-3 border border-cyan-400">
         <Marquee>
-          <span className="text-white">💰 $HMBT EMPIRE 💰 DISTRIBUTED: $212 💰 BURNED: 20.57M HMBT 💰 VISIT NOW! 💰</span>
+          <span className="text-white">💰 $HMBT EMPIRE 💰 DISTRIBUTED: {DISTRIBUTED_AMOUNT} 💰 BURNED: {BURNED_AMOUNT} 💰 VISIT NOW! 💰</span>
         </Marquee>
       </div>
 
@@ -122,6 +122,7 @@ function MySpaceFrame() {
       {/* Footer */}
       <div className="mt-3 text-center text-xs text-white">
         <p>♪♫ Currently playing: $HMBT Empire Builder ♫♪</p>
+        <p className="mt-1 text-yellow-300 animate-pulse">👁️ {PROJECT_TITLE} 👁️</p>
       </div>
     </div>
   );
@@ -158,6 +159,11 @@ export default function Frame() {
 
   return (
     <div className="w-[300px] mx-auto py-2 px-2">
+      <div className="text-center mb-2">
+        <div className="inline-block px-3 py-1 bg-black text-white text-xs rounded-md border border-cyan-400 animate-pulse">
+          🔥 90s MySpace Style 🔥
+        </div>
+      </div>
       <MySpaceFrame />
     </div>
   );
